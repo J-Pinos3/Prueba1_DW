@@ -17,15 +17,15 @@ app.use(express.urlencoded({extended:false}))
 app.get("/",async (request, response)=>{
     try {
         const videoUrl = 'https://raw.githubusercontent.com/soruly/trace.moe/master/demo.jpg'
-        response = await axios.get('https://api.trace.moe/search', {
+        const aresponse = await axios.get('https://api.trace.moe/search', {
             params: {
               url: videoUrl
             }
           });
 
-          const data = response.data
+          const data = aresponse.data
 
-            response.send(JSON.stringify(data))
+            response.send(""+JSON.stringify(data))
     } catch (error) {
         console.log(error)        
     }
